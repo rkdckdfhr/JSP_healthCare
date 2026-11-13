@@ -426,3 +426,27 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# Eclipse Workspace
+.metadata/
+
+# Eclipse generated files
+*.class
+
+# Java build output
+/bin/
+/build/
+/target/
+
+# Tomcat generated files
+/work/
+/temp/
+/logs/
+/Servers/
+
+# Deployment artifacts
+*.war
+
+# OS generated files
+.DS_Store
+Thumbs.db
