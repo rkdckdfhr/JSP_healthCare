@@ -157,22 +157,22 @@
     <!-- 검사 항목 박스 및 중앙 버튼 -->
     <div class="test-container">
         
-        <a href="checkup_physical.jsp" class="test-box">
+        <a href="check_body.jsp" class="test-box">
             <h2>신체 건강</h2>
             <p>전반적인 신체 활력 점검</p>
         </a>
         
-        <a href="checkup_mental.jsp" class="test-box">
+        <a href="check_mental.jsp" class="test-box">
             <h2>심리 상태</h2>
             <p>스트레스 및 멘탈 확인</p>
         </a>
         
-        <a href="checkup_diet.jsp" class="test-box">
+        <a href="check_eating.jsp" class="test-box">
             <h2>식습관 평가</h2>
             <p>영양 섭취 패턴 분석</p>
         </a>
         
-        <a href="checkup_sleep.jsp" class="test-box">
+        <a href="check_sleep.jsp" class="test-box">
             <h2>수면 패턴</h2>
             <p>수면의 질과 규칙성 진단</p>
         </a>
