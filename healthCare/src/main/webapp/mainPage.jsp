@@ -8,11 +8,66 @@
     <link rel="stylesheet" href="css/mainPage_style.css">
     
 </head>
+
+<%-- ArrayList 및 Users 클래스 임포트 --%>
+<%@ page import="java.util.*,healthCare.Users" %>
+
+<%
+	
+	/// 기존 유저 배열 가져오기 (최초 실행 시 NULL)
+	ArrayList<Users> userList = (ArrayList<Users>)application.getAttribute("userList");
+
+	/// 최초 실행 시 어드민 계정 생성
+	if(userList == null)
+	{
+		/// 배열 생성
+		userList = new ArrayList<Users>();
+		
+		/// 관리자 계정 추가
+		userList.add(new Users("admin","pass","관리자","admin"));	
+		
+		/// 웹 전체에서 사용 가능하도록 데이터 공유
+		application.setAttribute("userList", userList);
+		
+	}
+	
+	
+	
+%>
 <body>
 
-    <!-- 로그인 버튼 -->
-    <a href="login.jsp" class="login-btn">로그인</a>
+<%
+	/// 로그인 된 유저 아이디 받기
+	Users loginUser = (Users)session.getAttribute("loginUser");
 
+	/// 로그인 상태상태라면
+	if(loginUser != null)
+	{
+		%>
+		<!-- 로그인 정보 -->
+    		<div class="login-info">
+            <span><%= loginUser.getName() %>님</span>
+            <a href="myInfo.jsp" class="my-info-btn">내 정보</a>
+            <%
+            		if(loginUser.getAdminFlag() == "admin")
+            		{
+            			%>
+            			<a href="adminManage.jsp" class="my-info-btn">관리자페이지</a>
+            			<%
+            		}
+            %>
+            <a href="logout.jsp" class="my-info-btn">로그아웃</a>
+        </div>
+		<%
+	}
+	else
+	{
+		%>
+		<!-- 로그인 버튼 -->
+    		<a href="login.jsp" class="login-btn">로그인</a>
+		<%
+	}
+%>
     <!-- 중앙 타이틀 -->
     <div class="header-section">
         <h1>맞춤형 건강 복지 솔루션</h1>

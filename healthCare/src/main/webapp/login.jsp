@@ -7,6 +7,36 @@
     <title>로그인</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
+
+<%@ page import="java.util.*,healthCare.Users" %>
+
+<script type="text/javascript">
+	function checkLogin()
+	{
+		/// 로그인 정보 받기
+		var loginForm = document.loginForm;
+		
+		/// 아이디 공란 확인
+		if (loginForm.userId.value.trim() == "") {
+			alert("아이디를 입력하세요.");
+			loginForm.userId.select();
+			loginForm.userId.focus();
+			return false;
+		}
+		/// 비밀번호 공란 확인
+		if (loginForm.password.value.trim() == "") {
+			alert("비밀번호를 입력하세요.");
+			loginForm.password.select();
+			loginForm.password.focus();
+			return false;
+		}
+
+		/// 성공
+		loginForm.submit();
+		return true;
+
+	}
+</script>
 <body>
 
     <div class="page-container">
@@ -20,11 +50,11 @@
         <main class="login-area">
             <div class="login-container">
 
-                <form action="loginProcess.jsp" method="post">
+                <form name="loginForm" action="loginProcess.jsp" method="post">
 
                     <div class="input-group">
-                        <label for="userid">아이디</label>
-                        <input type="text" id="userid" name="userid"
+                        <label for="userId">아이디</label>
+                        <input type="text" id="userId" name="userId"
                                placeholder="아이디를 입력하세요">
                     </div>
 
@@ -36,7 +66,7 @@
 
                     <div class="button-group">
                         <a href="signup.jsp" class="signup-btn">회원가입</a>
-                        <button type="submit" class="submit-btn">로그인</button>
+                        <button type="button" class="submit-btn" onclick="checkLogin()">로그인</button>
                     </div>
 
                 </form>

@@ -133,3 +133,33 @@ body {
             margin-top: 5px;
             opacity: 0.9;
 }
+
+.login-info {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login-info span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.my-info-btn {
+    padding: 10px 18px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.my-info-btn:hover {
+    background-color: #388E3C;
+}
