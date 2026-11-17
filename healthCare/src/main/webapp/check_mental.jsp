@@ -15,7 +15,7 @@
     <a href="mainPage.jsp" class="back-btn">메인으로</a>
 
     <div class="header-section">
-        <h1>심리 상태 검사</h1>
+        <h1>❤️‍🩹 심리 상태 검사 </h1>
         <p>각 문항을 읽고 현재 자신의 상태와 가장 잘 맞는 항목을 선택해주세요.</p>
     </div>
 
