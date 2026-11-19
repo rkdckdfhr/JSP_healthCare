@@ -458,3 +458,38 @@ select {
     }
 
 }
+
+/* 메인 페이지 이동 영역 */
+.add-actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* 메인 페이지 이동 버튼 */
+.main-return-button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 28px;
+    background: #EAF5ED;
+    color: #4F9365;
+    border: 1px solid #D5EBDD;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.main-return-button:hover {
+    background: #4F9365;
+    color: white;
+    border-color: #4F9365;
+    transform: translateX(-50%) translateY(-2px);
+}

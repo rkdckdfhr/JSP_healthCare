@@ -214,10 +214,19 @@
             <!-- 질문 추가 -->
             <div class="add-section">
 
-                <button type="button" class="add-open-button"
-                    onclick="showAddArea()">
-                    + 항목 추가
-                </button>
+
+                <div class="add-actions">
+
+			        <button type="button" class="add-open-button"
+			            onclick="showAddArea()">
+			            + 항목 추가
+			        </button>
+			
+			        <a href="mainPage.jsp" class="main-return-button">
+			            🏠 메인으로 돌아가기
+			        </a>
+			
+			    </div>
 
 
                 <!-- 처음에는 숨겨져 있는 입력 영역 -->
@@ -255,7 +264,7 @@
                         </div>
 
                     </form>
-
+					
                 </div>
 
             </div>

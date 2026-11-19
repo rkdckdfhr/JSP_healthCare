@@ -14,10 +14,10 @@
         return;
     }
 
-    /// 질문 추가인지 삭제인지 확인하는 변수
+    /// 질문 추가인지 삭제인지 확인
     String action = request.getParameter("action");
-    
-    /// 선택 된 카테고리 변수
+
+    /// 선택된 카테고리
     String category = request.getParameter("category");
 
     /// 올바른 검사 종류인지 확인
@@ -31,39 +31,64 @@
         return;
     }
 
+    /// 알림 메시지
+    String message = "";
+    
+    /// 알림 메세지에 넣을 카테고리 이름
+    String categoryName = "";
+
+    switch (category) {
+        case "mental":
+            categoryName = "심리 상태 검사";
+            break;
+        case "body":
+            categoryName = "신체 건강 검사";
+            break;
+        case "eating":
+            categoryName = "식습관 평가";
+            break;
+        case "sleep":
+            categoryName = "수면 패턴 검사";
+            break;
+    }
+
     /// 질문 추가
     if ("add".equals(action)) {
 
-    		/// 추가된 질문 받아오기
         String question = request.getParameter("question");
-		
-    		/// 질문 리스트에 추가
-        if (question != null && !question.trim().isEmpty()) {
-            QuestionManager.addQuestion(category, question);
-        }
 
+        if (question != null && !question.trim().isEmpty()) {
+			/// 질문 리스트에 추가
+            QuestionManager.addQuestion(category, question);
+            message = categoryName + "에 문항이 추가되었습니다.";
+
+        } else {
+            message = "질문 내용을 입력해주세요.";
+        }
     }
 
     /// 질문 삭제
     else if ("delete".equals(action)) {
-		
-    		/// 질문 인덱스 받아오기
+
         String indexValue = request.getParameter("index");
 
         try {
-        		/// 받아온 인덱스 정수형으로 변환
             int index = Integer.parseInt(indexValue);
-			
-        		/// 질문 리스트에서 해당 질문 삭제
+          	
+            /// 질문 리스트에서 해당 질문 삭제
             QuestionManager.removeQuestion(category, index);
+            message = categoryName + "에 문항이 삭제되었습니다.";
 
-        } 
-      	/// 잘못된 인덱스 값이면 아무 작업도 하지 않음
-        catch (NumberFormatException e) { }
-
+        } catch (NumberFormatException e) {
+            message = "잘못된 요청입니다.";
+        }
     }
 
-    /// 처리 후 기존 검사 종류 페이지로 이동
-    response.sendRedirect("adminQuestion.jsp?category=" + category);
-    return;
+    /// 처리 후 알림 출력 및 페이지 이동
 %>
+
+<script>
+    alert("<%= message %>");
+    location.href = "adminQuestion.jsp?category=<%= category %>";
+</script>
+
