@@ -4,9 +4,10 @@
 <%@ page import="healthCare.Users" %>
 
 <%
+	/// 로그인 된 유저 아이디 받기
     Users loginUser = (Users)session.getAttribute("loginUser");
 
-    // 관리자 로그인 여부 확인
+    /// 관리자 로그인 여부 확인
     if(loginUser == null || !"admin".equals(loginUser.getAdminFlag())) {
         response.sendRedirect("mainPage.jsp");
         return;

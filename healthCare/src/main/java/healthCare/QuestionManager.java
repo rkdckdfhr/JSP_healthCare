@@ -9,10 +9,10 @@ import java.util.Map;
 
 public class QuestionManager {
 
-    // ServletContext 대신 순수 자바 static Map에 카테고리별 문항을 저장
+    /// ServletContext 대신 순수 자바 static Map에 카테고리별 문항을 저장
     private static Map<String, List<String>> questionMap = new HashMap<>();
 
-    // 카테고리별 문항 리스트를 가져오는 메서드 (파라미터로 category만 받음)
+    /// 카테고리별 문항 리스트를 가져오는 메서드 (파라미터로 category만 받음)
     public static List<String> getQuestions(String category)
     {
         List<String> list = questionMap.get(category);
@@ -78,5 +78,28 @@ public class QuestionManager {
             questionMap.put(category, list);
         }
         return list;
+    }
+
+    /// 카테고리별 문항 추가
+    public static void addQuestion(String category, String question) {
+    		
+    		/// 카테고리 별 리스트
+        List<String> questions = getQuestions(category);
+        /// 매개변수로 받은 문항 추가
+        if (question != null && !question.trim().isEmpty()) {
+            questions.add(question.trim());
+        }
+    }
+
+    // 카테고리별 문항 삭제
+    public static void removeQuestion(String category, int index) {
+    	
+    		/// 카테고리 별 리스트
+        List<String> questions = getQuestions(category);
+
+        /// 받아온 인덱스 값의 문항 삭제
+        if (index >= 0 && index < questions.size()) {
+            questions.remove(index);
+        }
     }
 }
