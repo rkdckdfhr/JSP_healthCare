@@ -1,0 +1,260 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "맑은 고딕", sans-serif;
+    background: #F5F9F5;
+    color: #355C43;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+}
+
+/* 상단 영역 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 55px;
+}
+
+.header-title h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.header-title p {
+    color: #82958A;
+    font-size: 15px;
+}
+
+/* 사용자 정보 */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid #E1ECE3;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+.user-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.user-id {
+    font-size: 13px;
+    color: #91A398;
+}
+
+/* 검사 결과 영역 */
+.main-content {
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 23px;
+    margin-bottom: 9px;
+}
+
+.section-title p {
+    font-size: 14px;
+    color: #91A398;
+}
+
+/* 점수 목록 */
+.score-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.score-item {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 25px;
+    background: #F8FBF8;
+    border: 1px solid #E5EFE7;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.score-item:hover {
+    border-color: #A8D5B3;
+    background: #F2F8F3;
+    transform: translateY(-2px);
+}
+
+.category-label {
+    display: block;
+    font-size: 12px;
+    color: #91A398;
+    margin-bottom: 9px;
+}
+
+.category-area h3 {
+    font-size: 19px;
+    color: #355C43;
+}
+
+/* 점수 */
+.score-number {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.score-number strong {
+    font-size: 25px;
+    color: #4F9365;
+}
+
+.score-number span {
+    font-size: 14px;
+    color: #91A398;
+}
+
+/* 진단 결과 */
+.diagnosis {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #EAF5ED;
+    color: #4F9365;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* 자세히 보기 */
+.detail-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 11px 17px;
+    background: #4F9365;
+    color: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.detail-button:hover {
+    background: #3D7951;
+    transform: translateY(-2px);
+}
+
+/* 검사 결과가 없는 경우 */
+.empty-result {
+    text-align: center;
+    padding: 75px 20px;
+    background: #F8FBF8;
+    border: 1px dashed #C9DDCE;
+    border-radius: 12px;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 18px;
+}
+
+.empty-result h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.empty-result p {
+    font-size: 14px;
+    color: #91A398;
+}
+
+/* 하단 버튼 */
+.bottom-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.main-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 8px;
+    background: #EAF5ED;
+    color: #4F9365;
+    border: 1px solid #D5EBDD;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.main-button:hover {
+    background: #4F9365;
+    color: white;
+}
+
+/* 반응형 */
+@media (max-width: 850px) {
+    .score-item {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+    }
+
+    .detail-area {
+        grid-column: 1 / -1;
+    }
+
+    .detail-button {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .user-info {
+        align-items: flex-start;
+    }
+
+    .main-content {
+        padding: 22px 16px;
+    }
+
+    .score-item {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-area {
+        grid-column: auto;
+    }
+}

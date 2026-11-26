@@ -9,6 +9,9 @@
 <jsp:setProperty name="HealthResults" property="category" />
 <jsp:setProperty name="HealthResults" property="questionCount" />
 
+<!-- 유저 점수 클래스 import -->
+<%@ page import="java.util.*,healthCare.UserScore,healthCare.Users" %>
+
 <%
     // 문항 갯수를 count 변수에 넣고 갯수만큼 점수 계산
     int count = HealthResults.getQuestionCount();
@@ -17,7 +20,32 @@
         String value = request.getParameter("q_" + i);
         if (value != null)
         {
-        	HealthResults.addScore(Integer.parseInt(value));
+        		HealthResults.addScore(Integer.parseInt(value));
+        		
+        		/// 로그인 된 유저 아이디 받기
+        		Users loginUser = (Users)session.getAttribute("loginUser");
+        		
+        		if(loginUser != null)
+        		{
+        			/// 유저 점수 리스트에 넣기 위한 유저 점수 변수
+        			UserScore userScore = new UserScore(	loginUser.getId(),				///< 유저아이디
+							HealthResults.getCategory(),		///< 카테고리
+							HealthResults.GetTotalScore(),	///< 합산 점수
+							HealthResults.GetMaxScore());	///< 최대 점수
+				/// 유저 점수 리스트 받기
+				ArrayList<UserScore> userScoreList = (ArrayList<UserScore>)application.getAttribute("userScoreList");
+				
+				/// 리스트가 없으면 새로 생성
+				if (userScoreList == null) {
+				userScoreList = new ArrayList<UserScore>();
+				}
+				/// 유저 점수 추가
+				userScoreList.add(userScore);
+				
+				/// 웹 전체에서 사용 가능하도록 데이터 공유
+				application.setAttribute("userScoreList", userScoreList);
+        		}
+
         }
     }
 %>
