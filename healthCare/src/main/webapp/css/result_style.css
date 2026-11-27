@@ -104,3 +104,36 @@
         .btn-retry:hover {
             background-color: #f0f0f0;
         }
+        
+        /* 추천 유튜브 썸네일 영역 */
+.video-section {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.video-guide {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #555555;
+    margin: 0 0 12px 0;
+}
+
+.thumbnail-link {
+    display: inline-block;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumbnail-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.youtube-thumbnail {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+}
