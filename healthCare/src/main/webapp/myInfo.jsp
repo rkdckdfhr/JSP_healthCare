@@ -165,6 +165,7 @@
                             </div>
 
                             <div class="detail-area">
+                            	<!-- 자세히보기 페이지에 카테고리 전달 -->
                                 <a href="myInfoDetail.jsp?category=<%= URLEncoder.encode(score.getCategory(), "UTF-8") %>"
                                    class="detail-button">
                                     자세히 보기

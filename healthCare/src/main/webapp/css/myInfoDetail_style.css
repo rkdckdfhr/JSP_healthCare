@@ -1,0 +1,224 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "맑은 고딕", sans-serif;
+    background: #F5F9F5;
+    color: #355C43;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 60px auto;
+}
+
+/* 상단 영역 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.header-title h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.header-title p {
+    color: #82958A;
+    font-size: 15px;
+}
+
+/* 사용자 정보 */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid #E1ECE3;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+.user-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.user-id {
+    font-size: 13px;
+    color: #91A398;
+}
+
+/* 메인 결과 카드 */
+.main-content {
+    background: white;
+    padding: 50px 45px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+/* 카테고리 */
+.category-badge {
+    display: inline-block;
+    padding: 11px 25px;
+    border-radius: 30px;
+    background: #EAF5ED;
+    color: #4F9365;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+/* 공통 설명 */
+.section-label {
+    display: block;
+    color: #91A398;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* 점수 영역 */
+.score-section {
+    margin-bottom: 35px;
+}
+
+.score-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+}
+
+.score-display strong {
+    font-size: 65px;
+    color: #355C43;
+}
+
+.score-display span {
+    font-size: 22px;
+    color: #91A398;
+}
+
+/* 진단 결과 */
+.grade-section {
+    margin-bottom: 35px;
+}
+
+.grade-section h2 {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+/* 솔루션 */
+.solution-section {
+    background: #F5F9F5;
+    border: 1px solid #E1ECE3;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+.solution-section h3 {
+    font-size: 19px;
+    margin-bottom: 15px;
+    color: #355C43;
+}
+
+.solution-section p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #627B6A;
+    word-break: keep-all;
+}
+
+/* 버튼 */
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button-area a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.retry-button {
+    background: #4F9365;
+    color: white;
+}
+
+.retry-button:hover {
+    background: #3D7951;
+    transform: translateY(-2px);
+}
+
+.back-button {
+    background: #EAF5ED;
+    color: #4F9365;
+    border: 1px solid #D5EBDD;
+}
+
+.back-button:hover {
+    background: #D5EBDD;
+    transform: translateY(-2px);
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .user-info {
+        align-items: flex-start;
+    }
+
+    .main-content {
+        padding: 35px 20px;
+    }
+
+    .score-display strong {
+        font-size: 52px;
+    }
+
+    .grade-section h2 {
+        font-size: 22px;
+    }
+
+    .solution-section {
+        padding: 22px;
+    }
+
+    .button-area {
+        flex-direction: column;
+    }
+
+    .button-area a {
+        text-align: center;
+    }
+}
