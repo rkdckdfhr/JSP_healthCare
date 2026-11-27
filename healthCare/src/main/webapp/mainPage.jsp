@@ -98,10 +98,11 @@
         </a>
 
         <!-- 정중앙 원형 버튼 (z-index로 4개 박스 위에 띄움) -->
-        <a href="checkup_comprehensive.jsp" class="center-circle-btn">
-            종합 검진
-            <span>Start All</span>
-        </a>
+        <!-- mainPage.jsp 중앙 원형 버튼 -->
+		<a href="check_health.jsp" class="center-circle-btn">
+    		종합 검진
+    		<span>Start All</span>
+		</a>
         
     </div>
 

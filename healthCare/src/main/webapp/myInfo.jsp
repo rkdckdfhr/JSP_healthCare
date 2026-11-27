@@ -141,6 +141,9 @@
                         else if ("sleep".equals(categoryName)) {
                             categoryName = "수면 패턴";
                         }
+                        else if ("health".equals(categoryName)) { 
+                        	categoryName = "종합 건강"; 
+                        }
                     %>
 
                         <!-- 카테고리별 점수 카드 -->
