@@ -1,0 +1,336 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "맑은 고딕", sans-serif;
+    background: #F5F9F5;
+    color: #355C43;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+/* 상단 영역 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.header-title h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.header-title p {
+    color: #82958A;
+    font-size: 15px;
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    background: white;
+    padding: 15px 24px;
+    border: 1px solid #E1ECE3;
+    border-radius: 12px;
+}
+
+.admin-info span:first-child {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.admin-id {
+    color: #91A398;
+    font-size: 13px;
+}
+
+/* 메인 영역 */
+.main-content {
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.section-header p {
+    color: #82958A;
+    font-size: 14px;
+}
+
+.result-count {
+    color: #82958A;
+    font-size: 15px;
+}
+
+.result-count strong {
+    color: #4F9365;
+    font-size: 22px;
+}
+
+/* 카테고리 필터 */
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.filter-form label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.filter-form select {
+    padding: 10px 15px;
+    border: 1px solid #D5EBDD;
+    border-radius: 8px;
+    background: #F5F9F5;
+    color: #355C43;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* 테이블 */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.result-table th {
+    background: #EAF5ED;
+    color: #355C43;
+    padding: 17px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #D5EBDD;
+}
+
+.result-table td {
+    padding: 18px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #EDF2EE;
+}
+
+.result-table tbody tr:hover {
+    background: #F8FBF8;
+}
+
+.result-table td strong {
+    color: #4F9365;
+}
+
+/* 진단 결과 */
+.grade {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.grade-bad {
+    background: #FDECEC;
+    color: #E45B5B;
+}
+
+.grade-normal {
+    background: #FFF3DF;
+    color: #E99A32;
+}
+
+.grade-good {
+    background: #EAF5ED;
+    color: #4F9365;
+}
+
+.grade-none {
+    background: #EEEEEE;
+    color: #777777;
+}
+
+/* 결과가 없을 때 */
+.empty-message {
+    padding: 60px 10px !important;
+    color: #91A398;
+    font-size: 15px;
+}
+
+/* 하단 버튼 */
+.button-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    background: #EAF5ED;
+    border: 1px solid #D5EBDD;
+    color: #4F9365;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    background: #4F9365;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 반응형 */
+@media (max-width: 700px) {
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .admin-info {
+        align-items: flex-start;
+    }
+
+    .main-content {
+        padding: 25px 15px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+/* 검사 결과 한 행 */
+.result-item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    min-height: 75px;
+    padding: 15px 20px;
+    gap: 10px;
+}
+/* 각 영역 */
+.result-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+}
+/* 항목 이름 */
+.result-label {
+    font-size: 12px;
+    color: #91A398;
+    font-weight: 500;
+}
+
+/* 실제 데이터 */
+.result-column strong {
+    font-size: 14px;
+    color: #355C43;
+    overflow-wrap: anywhere;
+}
+
+
+/* 사용자 정보 */
+.result-user-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.result-user-info strong {
+    font-size: 14px;
+    color: #355C43;
+}
+
+.result-user-info span {
+    font-size: 12px;
+    color: #91A398;
+}
+
+/* 점수 */
+.result-score {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    min-width: 110px;
+    justify-content: flex-end;
+}
+
+.result-score strong {
+    font-size: 20px;
+    color: #4F9365;
+}
+
+.result-score span {
+    font-size: 13px;
+    color: #91A398;
+}
+
+/* 검사 결과 */
+.grade-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.grade-good {
+    background: #EAF5ED;
+    color: #4F9365;
+}
+
+.grade-normal {
+    background: #FFF4DF;
+    color: #D69A35;
+}
+
+.grade-bad {
+    background: #FCEAEA;
+    color: #D96B6B;
+}
+
