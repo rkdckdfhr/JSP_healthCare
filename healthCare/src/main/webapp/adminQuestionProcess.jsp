@@ -25,7 +25,8 @@
         !(category.equals("mental") ||
           category.equals("body") ||
           category.equals("eating") ||
-          category.equals("sleep"))) {
+          category.equals("sleep") ||
+          category.equals("health"))) {
 
         response.sendRedirect("adminQuestion.jsp");
         return;
@@ -50,6 +51,8 @@
         case "sleep":
             categoryName = "수면 패턴 검사";
             break;
+        case "health":
+        	categoryName = "종합 건강 검진";
     }
 
     /// 질문 추가

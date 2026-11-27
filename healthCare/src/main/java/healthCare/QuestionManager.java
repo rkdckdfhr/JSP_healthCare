@@ -1,8 +1,8 @@
 package healthCare;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +17,7 @@ public class QuestionManager {
     {
         List<String> list = questionMap.get(category);
 
-        // 해당 카테고리가 처음 호출되어 비어있다면 기본 10문항 초기화
+        // 해당 카테고리가 처음 호출되어 비어있다면 초기 문항 세팅
         if (list == null)
         {
             list = new ArrayList<>();
@@ -73,6 +73,20 @@ public class QuestionManager {
                     "수면에 방해되지 않는 편안한 침실 환경(빛, 소음 등) 상태는 어떠한가요?",
                     "수면의 질이 다음 날 컨디션에 미치는 긍정적 영향은 어떠한가요?"
                 ));
+            } else if ("health".equals(category)) {
+                /// 4개 카테고리에서 각각 랜덤하게 3문항씩 추출하여 총 12문항 초기화
+                String[] categories = {"body", "mental", "eating", "sleep"};
+                for (String cat : categories) {
+                    /// 원본 리스트 순서가 섞이지 않도록 복사본 생성 후 셔플
+                    List<String> copyList = new ArrayList<>(getQuestions(cat));
+                    Collections.shuffle(copyList);
+                    
+                    /// 문항이 3개 미만일 경우를 대비해 안전하게 추출 개수 제한
+                    int pickCount = Math.min(3, copyList.size());
+                    for (int i = 0; i < pickCount; i++) {
+                        list.add(copyList.get(i));
+                    }
+                }
             }
             
             questionMap.put(category, list);
@@ -82,8 +96,7 @@ public class QuestionManager {
 
     /// 카테고리별 문항 추가
     public static void addQuestion(String category, String question) {
-    		
-    		/// 카테고리 별 리스트
+        /// 카테고리 별 리스트
         List<String> questions = getQuestions(category);
         /// 매개변수로 받은 문항 추가
         if (question != null && !question.trim().isEmpty()) {
@@ -91,10 +104,9 @@ public class QuestionManager {
         }
     }
 
-    // 카테고리별 문항 삭제
+    /// 카테고리별 문항 삭제
     public static void removeQuestion(String category, int index) {
-    	
-    		/// 카테고리 별 리스트
+        /// 카테고리 별 리스트
         List<String> questions = getQuestions(category);
 
         /// 받아온 인덱스 값의 문항 삭제
