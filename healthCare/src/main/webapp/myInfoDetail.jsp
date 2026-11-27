@@ -75,6 +75,10 @@
     String grade = healthResult.GetGrade();					///< 진단 결과 가져오기
     String gradeColor = healthResult.GetGradeColor();		///< 진단 결과 폰트 색 가져오기
     String solution = healthResult.GetSolution();			///< 결과에 따른 솔루션 멘트 가져오기
+  	
+    /// 진단 결과에 따른 추천 영상 정보 가져오기
+    String youtubeUrl = healthResult.GetYoutubeUrl();
+    String thumbnailUrl = healthResult.GetThumbnailUrl();
 
     /// 잘못된 최대 점수 예외 처리
     if (maxScore <= 0) {
@@ -82,6 +86,8 @@
         gradeColor = "#333333";
         solution = "정상적인 검사 결과가 아닙니다. 다시 검사를 진행해 주세요.";
     }
+    
+ 	
 %>
 
 <!DOCTYPE html>
@@ -164,7 +170,35 @@
                 <p><%= solution %></p>
 
             </div>
-
+			<!-- 추천 유튜브 영상 -->
+			<% if (!youtubeUrl.isEmpty()) { %>
+			
+			    <div class="video-section">
+			
+			        <h3>맞춤 추천 가이드 영상</h3>
+			
+			        <p class="video-guide">
+			            건강 관리를 위한 추천 영상입니다.
+			            썸네일을 클릭하면 유튜브로 이동합니다.
+			        </p>
+			
+			        <!-- 문구와 이미지 사이 간격 -->
+			        <div style="height: 30px;"></div>
+			
+			        <a href="<%= youtubeUrl %>"
+			           target="_blank"
+			           rel="noopener noreferrer"
+			           class="thumbnail-link">
+			
+			            <img src="<%= thumbnailUrl %>"
+			                 alt="추천 건강 가이드 썸네일"
+			                 class="youtube-thumbnail">
+			
+			        </a>
+			
+			    </div>
+			
+			<% } %>
 
             <!-- 버튼 -->
             <div class="button-area">

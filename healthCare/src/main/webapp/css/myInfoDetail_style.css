@@ -222,3 +222,84 @@ body {
         text-align: center;
     }
 }
+/* 추천 영상 영역 */
+.video-section {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.video-section h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    color: #355C43;
+}
+
+.video-guide {
+    font-size: 15px;
+    color: #627B6A;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* 썸네일 링크 */
+.thumbnail-link {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+
+/* 썸네일 이미지 */
+.youtube-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+
+.youtube-thumbnail:hover {
+    transform: scale(1.02);
+}
+/* 추천 영상과 안내 문구 사이 간격 */
+.video-section .thumbnail-link {
+    display: block !important;
+    margin-top: 40px !important;
+}
+
+/* 안내 문구 */
+.video-section .video-guide {
+    margin-bottom: 0 !important;
+}
+.video-section .thumbnail-link {
+    margin-top: 100px !important;
+    outline: 3px solid red !important;
+}
+.video-guide {
+    font-size: 15px;
+    color: #627B6A;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.thumbnail-link {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.youtube-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: 0.3s;
+}
