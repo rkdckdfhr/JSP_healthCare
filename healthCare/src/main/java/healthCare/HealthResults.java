@@ -161,4 +161,48 @@ public class HealthResults
         return "검사 항목을 다시 확인해 주세요.";
     }
 	
+	/// [신규] 나쁨/보통 등급일 때 추천 유튜브 영상 ID 반환 (좋음일 때는 빈 문자열 반환)
+		public String GetVideoId()
+		{
+			int max = GetMaxScore();
+			if (max == 0) return "";
+
+			double ratio = (double) GetTotalScore() / max;
+			boolean isBad = ratio <= (1.0 / 3.0);
+			boolean isNormal = ratio > (1.0 / 3.0) && ratio <= (2.0 / 3.0);
+
+			/// '좋음' 등급이면 영상 추천 안 함
+			if (!isBad && !isNormal) return "";
+
+			if ("mental".equals(category)) {
+				return isBad ? "_MTd1opMBk0" : "6soiPqRSfU4";
+			} else if ("body".equals(category)) {
+				return isBad ? "tZEZNsuDkLY" : "bqHZT259dlw";
+			} else if ("eating".equals(category)) {
+				return isBad ? "zGm-7y_p9Vc" : "yZ-Rsgo7zVw";
+			} else if ("sleep".equals(category)) {
+				return isBad ? "wOrzI6KBDbM" : "TRQV5h0XMns";
+			} else if ("health".equals(category)) {
+				return isBad ? "_4pmSuPQnIM" : "tk_mVOCRaak";
+			}
+			return "";
+		}
+
+		/// [신규] 유튜브 썸네일 이미지 URL 반환 (hqdefault.jpg: 고화질 480x360)
+		public String GetThumbnailUrl()
+		{
+			String videoId = GetVideoId();
+			if (videoId.isEmpty()) return "";
+			return "https://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
+		}
+
+		/// [신규] 클릭 시 이동할 유튜브 영상 원본 URL 반환
+		public String GetYoutubeUrl()
+		{
+			String videoId = GetVideoId();
+			if (videoId.isEmpty()) return "";
+			return "https://www.youtube.com/watch?v=" + videoId;
+		}
+	
+	
 }
